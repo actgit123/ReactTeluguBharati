@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.jumbotron
+{  margin: 0 !important;  
+  background-image: linear-gradient(to right,lavender, lightseagreen,lavender);
+  height: 330px;;
+  color : black;
+}    
+ 
+.navbar {
+  background-color: rgb(109,95, 236);
+  font-size: 20px;   
+} 
