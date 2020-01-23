@@ -22,19 +22,19 @@ class Header extends Component {
     render() {
         return(
             <React.Fragment>
-                <Jumbotron fluid>          
+                <Jumbotron>          
                 <div className="container">
                     <div className="row ">
-                            <div className="col-sm-4 pb-4">
-                                    <img src="/assets/images/logo.png" alt="logo" />
+                    <div className="col my-auto col-sm-4">
+                                    <img  src="/assets/images/logo.png" alt="logo" />
                                 
                              </div>
-                             <div className="col-sm-4">
+                             <div className="col col-sm-4 my-auto">
                             <h2>తెలుగు భారతి</h2>
                             <h6>తెలుగు నేర్చుకోండి, తెలుగుదనం పంచండి</h6>
                             </div>
                         
-                        <div  className="col-sm-4">
+                        <div  className="col col-sm-4 my-auto">
                             <Button  className="btn btnheader">Register</Button>
                             <Button  className="btn btnheader">LogIn</Button>                          
                          </div>
