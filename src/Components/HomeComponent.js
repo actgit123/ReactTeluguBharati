@@ -1,30 +1,23 @@
 import React, { useState } from 'react';
-import { Carousel,CarouselItem,CarouselControl,CarouselIndicators,CarouselCaption } from 'reactstrap';
+import { Carousel,CarouselItem,CarouselControl,CarouselIndicators,CarouselCaption, Collapse, Card,CardHeader,CardBody } from 'reactstrap';
+import { items } from '../shared/images';
+import { news } from '../shared/News';
 
-
-const items = [
-    {
-        src:"/assets/images/carousel/vyasam.jpg",
-        alt:"graduation-2018",
-        caption:"Graduation-2018"
-    },
-   {
-       src:"/assets/images/carousel/vyasam.jpg",
-       alt:"curriculum",
-       caption:"Curriculum"
-   },
-   {
-       src:"/assets/images/carousel/vyasam.jpg",
-       alt:"Schools open",
-       caption:"Schools open"
-
-   }
-    
-];
 
 function HomeComponent(props) {
-    const [activeIndex, setActiveIndex] = useState(0);
+   //carousel state 
+  const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+
+  //latest news state
+  const [collapse,setCollapse]=useState(0);
+  //const cards=[1,2,3];
+  
+  const toggle = (e) => {
+    let event = e.target.dataset.event;
+        setCollapse( collapse === Number(event) ? 0 : Number(event) );
+  }
+
 
 const next = () => {
     if(animating) return;
@@ -68,6 +61,23 @@ const next = () => {
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
               </div>
+              <div class="col col-md-5">
+                               
+                     <h2 class="bg-info">Latest News</h2>
+                    
+                        {news.map((item) => {
+                             return (
+                                         <Card style={{ marginBottom: '1rem' }} key={item.id}>
+                                          <CardHeader style={{ color: 'blue' }} onClick={toggle} data-event={item.id}>{item.header}</CardHeader>
+                                           <Collapse isOpen={collapse === item.id}>
+                                            <CardBody>
+                                            {item.information}
+                                           </CardBody>
+                                              </Collapse>
+                                             </Card>
+                                     );
+                             } )}
+                     </div>
           </div>
       </div>
   );
